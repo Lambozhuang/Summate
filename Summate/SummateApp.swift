@@ -14,7 +14,7 @@ struct SummateApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-              .tint(.green)
+              .tint(Color(red: 0.61, green: 0.9, blue: 0.24))
         }
     }
 }

@@ -47,18 +47,19 @@ final class Trail: Identifiable {
     }
   }
   
-  enum Terrain {
-    case plain
-    case forest
-    case rocky
-    case mountain
-    case river
-    case desert
-    case snow
+  enum Terrain: String {
+    case plain = "Plain"
+    case forest = "Forest"
+    case rocky = "Rocky"
+    case mountain = "Mountain"
+    case river = "River"
+    case desert = "Desert"
+    case snow = "Snow"
+    case swamp = "Swamp"
   }
   
   static let sample: [Trail] = [
-    Trail(name: "Trail 1", distance: 10.0, days: 2, difficulty: .easy, description: "A nice easy trail", terrain: [.plain], elevation: 200),
+    Trail(name: "Sörmlandsleden", distance: 73.0, days: 3, difficulty: .easy, description: "Sörmlandsleden is one of Sweden's most famous and well-maintained hiking trails, stretching over 1,000 kilometers through the scenic region of Södermanland (Sörmland), just south of Stockholm. It offers a diverse landscape that includes dense forests, serene lakes, coastal areas, and charming rural villages, providing a great experience for nature lovers and outdoor enthusiasts.", terrain: [.plain, .river, .swamp], elevation: 500),
     Trail(name: "Trail 2", distance: 20.5, days: 4, difficulty: .moderate, description: "A challenging but beautiful trail", terrain: [.forest, .mountain], elevation: 1000),
     Trail(name: "Trail 3", distance: 5.0, days: 1, difficulty: .hard, description: "A short but tough trail", terrain: [.rocky, .snow], elevation: 500)
   ]
