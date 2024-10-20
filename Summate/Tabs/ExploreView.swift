@@ -92,7 +92,7 @@ struct ExploreView: View {
     case .days:
       return trails.sorted { $0.days < $1.days }
     case .difficulty:
-      return trails.sorted { $0.difficulty.rawValue < $1.difficulty.rawValue }
+      return trails.sorted { $0.difficulty < $1.difficulty }
     }
   }
 }

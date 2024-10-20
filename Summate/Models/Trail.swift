@@ -33,16 +33,22 @@ final class Trail: Identifiable {
     self.imageName = imageName
   }
   
-  enum Difficulty: String {
-    case easy
-    case moderate
-    case hard
+  enum Difficulty: String, Comparable {
+    case easy = "Easy"
+    case moderate = "Moderate"
+    case hard = "Hard"
     
-    var string: String {
+    // Implementing Comparable
+    static func < (lhs: Difficulty, rhs: Difficulty) -> Bool {
+      return lhs.order < rhs.order
+    }
+    
+    // A computed property to assign an order value
+    private var order: Int {
       switch self {
-      case .easy: "Easy"
-      case .moderate: "Moderate"
-      case .hard: "Hard"
+      case .easy: return 1
+      case .moderate: return 2
+      case .hard: return 3
       }
     }
   }
@@ -59,8 +65,8 @@ final class Trail: Identifiable {
   }
   
   static let sample: [Trail] = [
-    Trail(name: "Sörmlandsleden", distance: 73.0, days: 3, difficulty: .easy, description: "Sörmlandsleden is one of Sweden's most famous and well-maintained hiking trails, stretching over 1,000 kilometers through the scenic region of Södermanland (Sörmland), just south of Stockholm. It offers a diverse landscape that includes dense forests, serene lakes, coastal areas, and charming rural villages, providing a great experience for nature lovers and outdoor enthusiasts.", terrain: [.plain, .river, .swamp], elevation: 500),
-    Trail(name: "Trail 2", distance: 20.5, days: 4, difficulty: .moderate, description: "A challenging but beautiful trail", terrain: [.forest, .mountain], elevation: 1000),
+    Trail(name: "Sörmlandsleden", distance: 73.0, days: 3, difficulty: .moderate, description: "Sörmlandsleden is one of Sweden's most famous and well-maintained hiking trails, stretching over 1,000 kilometers through the scenic region of Södermanland (Sörmland), just south of Stockholm. It offers a diverse landscape that includes dense forests, serene lakes, coastal areas, and charming rural villages, providing a great experience for nature lovers and outdoor enthusiasts.", terrain: [.plain, .river, .swamp], elevation: 500),
+    Trail(name: "Trail 2", distance: 20.5, days: 4, difficulty: .easy, description: "A challenging but beautiful trail", terrain: [.forest, .mountain], elevation: 1000),
     Trail(name: "Trail 3", distance: 5.0, days: 1, difficulty: .hard, description: "A short but tough trail", terrain: [.rocky, .snow], elevation: 500)
   ]
 }

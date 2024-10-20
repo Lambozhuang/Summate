@@ -11,14 +11,14 @@ struct TrailDetailView: View {
   let trail: Trail
   var body: some View {
     ScrollView {
-      Image("Sörmlandsleden")
+      Image(trail.name)
         .resizable()
         .aspectRatio(contentMode: .fill)
         .frame(height: 270)
         .clipped()
         
       VStack(alignment: .leading, spacing: 10) {
-        Text("Sörmlandsleden")
+        Text(trail.name)
           .font(.largeTitle)
           .bold()
           .foregroundStyle(.white)
@@ -46,7 +46,7 @@ struct TrailDetailView: View {
           Divider()
           Spacer()
           VStack {
-            Text(trail.difficulty.string)
+            Text(trail.difficulty.rawValue)
               .font(.title2)
               .bold()
             Text("Difficulty")

@@ -51,7 +51,7 @@ struct ExploreTrailCardView: View {
         Divider()
         Spacer()
         VStack {
-          Text(trail.difficulty.string)
+          Text(trail.difficulty.rawValue)
             .font(.title2)
             .bold()
           Text("Difficulty")
