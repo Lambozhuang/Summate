@@ -30,7 +30,7 @@ struct EmptyHikeView: View {
         HStack {
           Spacer()
           Image(systemName: "plus")
-          Text("Create a Hike")
+          Text("Start a new hike")
             .fontWeight(.semibold)
           Spacer()
         }
@@ -45,14 +45,11 @@ struct EmptyHikeView: View {
         .clipShape(RoundedRectangle(cornerRadius: 20))
       }
       .buttonStyle(.plain)
-      .fullScreenCover(isPresented: $viewModel.isCreatingHike) {
-        SelectTrailView()
-      }
       
       Spacer()
     }
     .padding(.horizontal)
-    .navigationTitle("Your Hikes")
+    .navigationTitle("My Hikes")
   }
 }
 

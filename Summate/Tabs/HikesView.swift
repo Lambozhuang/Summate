@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct HikesView: View {
-    var body: some View {
-      NavigationStack {
+  @EnvironmentObject var viewModel: ViewModel
+  var body: some View {
+    NavigationStack {
+      if viewModel.hikes.count == 0 {
         EmptyHikeView()
+      } else {
+        HikeListView()
       }
     }
+    .fullScreenCover(isPresented: $viewModel.isCreatingHike) {
+      SelectTrailView()
+    }
+  }
 }
 
 #Preview {
-    HikesView()
+  HikesView()
+    .environmentObject(ViewModel())
 }

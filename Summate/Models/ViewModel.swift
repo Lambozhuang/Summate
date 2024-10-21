@@ -10,6 +10,9 @@ import Foundation
 @MainActor
 class ViewModel: ObservableObject {
   @Published var isCreatingHike = false
+  @Published var isFinishingCreatingHike = false
+  
+  @Published var hikes: [Hike] = [Hike.sample]
   
   init() {}
 }

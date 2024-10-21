@@ -9,7 +9,10 @@ import SwiftUI
 
 struct TrailDetailView: View {
   @EnvironmentObject var viewModel: ViewModel
+  
   let trail: Trail
+  let hike = Hike()
+  
   var body: some View {
     ZStack(alignment: .bottom) {
       ScrollView {
@@ -99,7 +102,7 @@ struct TrailDetailView: View {
       .ignoresSafeArea()
       
       if viewModel.isCreatingHike {
-        NavigationLink(destination: AddHikeInfoView()) {
+        NavigationLink(destination: AddHikeInfoView(trail: trail)) {
           HStack {
             Spacer()
             
@@ -120,6 +123,9 @@ struct TrailDetailView: View {
         }
         .buttonStyle(.plain)
         .padding()
+        .onAppear {
+          
+        }
       }
     }
   }
