@@ -56,17 +56,17 @@ struct ExploreView: View {
         .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
         
-        ForEach(filteredTrails) { trail in
+        ForEach(filteredTrails.indices, id: \.self) { index in
           ZStack {
-            ExploreTrailCardView(trail: trail)
-            NavigationLink(destination: TrailDetailView(trail: trail)) {
+            ExploreTrailCardView(trail: filteredTrails[index])
+            NavigationLink(destination: TrailDetailView(trail: filteredTrails[index])) {
               EmptyView()
             }
           }
           .listRowSeparator(.hidden)
           .listRowBackground(Color.clear)
+          .padding(.bottom, index == filteredTrails.count - 1 ? 100 : 0) // Add padding to the last item
         }
-        
       }
       .listStyle(.plain)
       .searchable(text: $searchText, prompt: "Search trails by name")

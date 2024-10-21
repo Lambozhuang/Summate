@@ -9,7 +9,9 @@ import SwiftUI
 
 struct HikesView: View {
     var body: some View {
-        Text("Hikes View")
+      NavigationStack {
+        EmptyHikeView()
+      }
     }
 }
 

@@ -15,7 +15,7 @@ struct ExploreTrailCardView: View {
       ZStack(alignment: .bottomLeading) {
         Image("Sörmlandsleden")
           .resizable()
-          .aspectRatio(contentMode: .fill)
+          .scaledToFill()
           .frame(height: 120)
           .clipped()
         Text(trail.name)

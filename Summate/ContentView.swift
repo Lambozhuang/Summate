@@ -30,5 +30,6 @@ struct ContentView: View {
 
 #Preview {
   ContentView()
+    .environmentObject(ViewModel())
     .tint(Color(red: 0.61, green: 0.9, blue: 0.24))
 }
