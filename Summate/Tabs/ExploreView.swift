@@ -36,8 +36,8 @@ struct ExploreView: View {
       List {
         ScrollView(.horizontal, showsIndicators: false) {
           HStack(spacing: 10) {
-            Image(systemName: "line.3.horizontal.decrease.circle")
-              .font(.title)
+            Image(systemName: "line.3.horizontal.decrease")
+              .font(.title2)
               .foregroundStyle(.gray)
             
             FilterButton(title: "Distance", isSelected: sortOption == .distance) {
@@ -98,6 +98,8 @@ struct ExploreView: View {
 }
 
 struct FilterButton: View {
+  @Environment(\.colorScheme) var colorScheme
+  
   let title: String
   let isSelected: Bool
   let action: () -> Void
@@ -106,12 +108,21 @@ struct FilterButton: View {
     Button(action: action) {
       Text(title)
         .font(.system(size: 15)
-          .weight(.semibold))
+        .weight(.semibold))
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
         .background(isSelected ? Color(red: 0.81, green: 0.99, blue: 0.54) : Color(UIColor.systemGray6))
-        .foregroundColor(.black)
         .cornerRadius(27)
+        .foregroundStyle(textColor)
+    }
+    .buttonStyle(.plain)
+  }
+  
+  private var textColor: Color {
+    if colorScheme == .light {
+      return Color.black // In light mode, always black text
+    } else {
+      return isSelected ? Color.black : Color.white // In dark mode: black if selected, white otherwise
     }
   }
 }

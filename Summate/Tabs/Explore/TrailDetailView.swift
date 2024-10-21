@@ -58,13 +58,13 @@ struct TrailDetailView: View {
           }
           .padding()
           .background(
-            Color.white
+            Color(UIColor.secondarySystemBackground)
               .clipShape(.capsule)
               .shadow(radius: 10)
           )
           
           Text(trail.description)
-            .foregroundStyle(Color(red: 0.4, green: 0.4, blue: 0.4))
+            .foregroundStyle(.secondary)
           
           Text("Terrain")
             .font(.headline)
@@ -78,7 +78,6 @@ struct TrailDetailView: View {
               .padding(.horizontal, 12)
               .padding(.vertical, 8)
               .background(Color(UIColor.systemGray6))
-              .foregroundColor(.black)
               .cornerRadius(15)
               .lineLimit(1)
           }
@@ -90,7 +89,6 @@ struct TrailDetailView: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
             .background(Color(UIColor.systemGray6))
-            .foregroundColor(.black)
             .cornerRadius(15)
             .lineLimit(1)
             .padding(.bottom, 100)
@@ -110,6 +108,7 @@ struct TrailDetailView: View {
             Image(systemName: "arrow.right")
             Spacer()
           }
+          .foregroundStyle(.black)
           .padding()
           .background(
             RoundedRectangle(cornerRadius: 20)
@@ -118,9 +117,8 @@ struct TrailDetailView: View {
               .stroke(Color(red: 0.61, green: 0.86, blue: 0.26).opacity(0.24), lineWidth: 2)
           )
           .clipShape(RoundedRectangle(cornerRadius: 20))
-          .tint(.black)
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(.plain)
         .padding()
       }
     }

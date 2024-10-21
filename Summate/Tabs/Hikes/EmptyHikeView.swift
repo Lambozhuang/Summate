@@ -34,6 +34,7 @@ struct EmptyHikeView: View {
             .fontWeight(.semibold)
           Spacer()
         }
+        .foregroundStyle(.black)
         .padding()
         .background(
           RoundedRectangle(cornerRadius: 20)
@@ -42,9 +43,8 @@ struct EmptyHikeView: View {
             .stroke(Color(red: 0.61, green: 0.86, blue: 0.26).opacity(0.24), lineWidth: 2)
         )
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .tint(.black)
       }
-      .buttonStyle(PlainButtonStyle())
+      .buttonStyle(.plain)
       .fullScreenCover(isPresented: $viewModel.isCreatingHike) {
         SelectTrailView()
       }

@@ -23,6 +23,7 @@ struct SelectTrailView: View {
             Image(systemName: "chevron.right.2")
             Spacer()
           }
+          .foregroundStyle(.black)
           .padding()
           .background(
             RoundedRectangle(cornerRadius: 20)
@@ -31,9 +32,8 @@ struct SelectTrailView: View {
               .stroke(Color(red: 0.61, green: 0.86, blue: 0.26).opacity(0.24), lineWidth: 2)
           )
           .clipShape(RoundedRectangle(cornerRadius: 20))
-          .tint(.black)
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(.plain)
         .padding()
       }
       .navigationTitle("Select a Trail")
